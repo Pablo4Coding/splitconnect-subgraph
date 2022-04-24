@@ -1,0 +1,24 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SplitConnect
+    network: mumbai
+    source:
+      address: "0xa0C4571826FdAcda99e18bC6d8f40731E1597325"
+      abi: SplitConnect
+      startBlock: 26056166
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - AddExpense
+      abis:
+        - name: SplitConnect
+          file: SplitConnect/abis/SplitConnect.json
+      eventHandlers:
+        - event: AddExpense(indexed address,uint256,string)
+          handler: handleAddExpense
+      file: SplitConnect/SplitConnect.wasm

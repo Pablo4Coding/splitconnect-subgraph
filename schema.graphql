@@ -1,0 +1,6 @@
+type AddExpense @entity {
+  id: ID!
+  from: Bytes! # address
+  amount: BigInt! # uint256
+  description: String! # string
+}
